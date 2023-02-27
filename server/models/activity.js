@@ -5,6 +5,8 @@ const ActivitySchema = mongoose.Schema({
   description: String,
   location: String,
   price: Number,
+  rating: Number,
+  images: [String],
 });
 
 module.exports = mongoose.model('Activity', ActivitySchema);

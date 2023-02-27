@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Activity = require('./models/activity');
+const cors = require('cors');
 
 const app = express();
-const port = 3000;
+app.use(cors());
+
+const port = 4000;
 
 mongoose.set('strictQuery', false);
 
@@ -23,5 +26,5 @@ app.get('/activities', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`listening on port ${port}`);
 });
