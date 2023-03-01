@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// price and rating should be calculated from reviews
 const ActivitySchema = mongoose.Schema({
   name: String,
   description: String,

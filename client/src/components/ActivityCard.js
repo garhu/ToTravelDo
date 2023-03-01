@@ -3,22 +3,24 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-export default function ActivityCard({ image, title, location }) {
+export default function ActivityCard({ activity }) {
+  if (activity === null) return null;
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={image} alt={title} />
+    <Link to={`/activities/${activity._id}`} style={{ textDecoration: 'none' }}>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia component="img" height="140" image={activity.images[0]} alt={activity.name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {activity.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {location}
+            {activity.location}
           </Typography>
         </CardContent>
-      </CardActionArea>
-    </Card>
+      </Card>
+    </Link>
   );
 }

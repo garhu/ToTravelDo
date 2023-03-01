@@ -6,11 +6,7 @@ export default function ActivityList({ activities }) {
   const renderedActivities = activities.map((activity) => {
     return (
       <Grid item xs={4} key={activity._id}>
-        <ActivityCard
-          title={activity.name}
-          location={activity.location}
-          image={activity.images[0]}
-        />
+        <ActivityCard activity={activity} />
       </Grid>
     );
   });

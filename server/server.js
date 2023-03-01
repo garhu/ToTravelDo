@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const port = 4000;
 
@@ -23,6 +24,30 @@ app.get('/', (req, res) => {
 app.get('/activities', async (req, res) => {
   const activities = await Activity.find({});
   res.send(activities);
+});
+
+app.post('/activities', async (req, res) => {
+  const activity = new Activity(req.body);
+  await activity.save();
+  res.sendStatus(200);
+});
+
+app.get('/activities/:id', async (req, res) => {
+  const { id } = req.params;
+  const activity = await Activity.findById(id);
+  res.send(activity);
+});
+
+app.put('/activities/:id', async (req, res) => {
+  const { id } = req.params;
+  const activity = await Activity.findByIdAndUpdate(id, { ...req.body });
+  res.sendStatus(200);
+});
+
+app.delete('/activities/:id', async (req, res) => {
+  const { id } = req.params;
+  await Activity.findByIdAndDelete(id);
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {

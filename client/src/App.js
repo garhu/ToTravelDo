@@ -1,16 +1,22 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
-import ActivitiesPage from './pages/ActivitiesPage';
-import AppBar from './components/AppBar';
+import { Route, Routes } from 'react-router-dom';
+import ActivitiesDisplay from './pages/ActivitiesDisplay';
+import ActivityDetails from './pages/ActivityDetails';
+import NewActivityForm from './pages/NewActivityForm';
+import EditActivityForm from './pages/EditActivityForm';
+import NavBar from './components/NavBar';
+import './style.css';
 
 function App() {
   return (
     <div>
-      <AppBar />
-      <ActivitiesPage />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ActivitiesDisplay />} />
+        <Route path="/activities" element={<ActivitiesDisplay />} />
+        <Route path="/activities/new" element={<NewActivityForm />} />
+        <Route path="/activities/:id" element={<ActivityDetails />} />
+        <Route path="/activities/:id/edit" element={<EditActivityForm />} />
+      </Routes>
     </div>
   );
 }

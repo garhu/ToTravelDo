@@ -21,3 +21,7 @@ ToTravelDo encourages users to conduct their own research into the best vendor.
 
 'To' and 'Do' different colors than 'Travel'
 For tags, use MUI autocomplete combo box
+
+##
+
+make services folder with ex. 'activityServices.js'

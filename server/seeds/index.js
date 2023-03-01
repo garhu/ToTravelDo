@@ -17,7 +17,7 @@ const lorem =
 
 const seedDB = async () => {
   await Activity.deleteMany({});
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 50; i++) {
     const randomCity = sample(cities);
     const activity = new Activity({
       name: sample(activities),
